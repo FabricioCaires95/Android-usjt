@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TransicaoTela</string>
+    <string name="edit_message">Escreva uma Mensagem</string>
+    <string name="button_send">Enviar</string>
+</resources>
