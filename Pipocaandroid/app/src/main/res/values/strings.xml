@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Pipoca.android</string>
+    <string name="action_settings">Opções</string>
+    <string-array name="genero">
+        <item>Ação</item>
+        <item>Aventura</item>
+    </string-array>
+</resources>
