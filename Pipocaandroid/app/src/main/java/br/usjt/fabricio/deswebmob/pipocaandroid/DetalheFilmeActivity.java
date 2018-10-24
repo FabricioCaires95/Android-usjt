@@ -5,6 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * Fabricio Caires
+ * 816155552
+ */
+
 public class DetalheFilmeActivity extends AppCompatActivity {
 
     TextView id, titulo, descricao, anoLancamento, popularidade, direcao, genero;

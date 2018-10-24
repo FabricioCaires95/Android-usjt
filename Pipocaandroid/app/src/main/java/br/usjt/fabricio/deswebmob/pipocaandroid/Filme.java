@@ -2,6 +2,11 @@ package br.usjt.fabricio.deswebmob.pipocaandroid;
 
 import java.util.ArrayList;
 
+/**
+ * Fabricio Caires
+ * 816155552
+ */
+
 public class Filme {
 
     private int id;
@@ -19,6 +24,7 @@ public class Filme {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
+
         this.anoLancamento = anoLancamento;
         this.direcao = direcao;
     }
@@ -86,6 +92,8 @@ public class Filme {
     public void setList(ArrayList<Filme> list) {
         this.list = list;
     }
+
+
 
     public ArrayList<Filme> gerarLista(){
         Filme f1 = new Filme(1, "Piratas do Caribe - Fim do Mundo", "filme bom",

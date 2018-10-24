@@ -10,6 +10,11 @@ import android.widget.Spinner;
 import android.support.v7.widget.Toolbar;
 //import android.widget.Toolbar;
 
+/**
+ * Fabricio Caires
+ * 816155552
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     Spinner spinnerGenero;
@@ -27,14 +32,15 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), ListarFilmesActivity.class);
-
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ListarFilmesActivity.class);
                 intent.putExtra(CHAVE, genero);
                 startActivity(intent);
             }
+
+
         });
     }
 
