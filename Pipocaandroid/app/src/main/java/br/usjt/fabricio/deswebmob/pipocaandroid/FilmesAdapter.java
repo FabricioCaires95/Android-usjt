@@ -19,76 +19,43 @@ import java.util.List;
  */
 public class FilmesAdapter extends ArrayAdapter<Filme> {
 
-    private List<Filme> filmes;
-    private  Context context;
-
-    public FilmesAdapter(List<Filme> filmes, Context context){
-        super(context, -1, filmes);
-        this.filmes = filmes;
-        this.context = context;
+    public FilmesAdapter(Context context, List<Filme> cast ){
+        super(context,-1,cast);
     }
 
-    private static class ViewHolder{
-        ImageView conditionImageView;
-        TextView txtTitulo;
-        TextView txtId;
-        TextView txtDirecao;
-        TextView txtData;
-    }
-
-    @Override
-    public int getCount() {
-        return super.getCount();
-    }
-
-    @Override
-    public Filme getItem(int position){
-        return filmes.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return super.getItemId(position);
+    private  static class ViewHolder{
+        ImageView filmeImage;
+        TextView titulo;
+        TextView diretor;
+        TextView dataLancamento;
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Filme desejado = filmes.get(position);
-        View principal = null;
-        ViewHolder holder = null;
-        Context context= getContext();
-
-        //TextView tituloDoItemTextView;
-        //TextView descricaoDoItemTextView;
-        ViewHolder viewHolder;
-
-        if (convertView == null){
+    public View getView(int position, @Nullable View convertView,
+                        @NonNull ViewGroup parent){
+        Filme filme = getItem(position);
+        View raiz = null;
+        ViewHolder viewHolder = null;
+        Context context = getContext();
+        if(convertView==null){
             LayoutInflater inflater = LayoutInflater.from(context);
-            principal = inflater.inflate(R.layout.activity_item_filme, parent, false);
+            raiz = inflater.inflate(R.layout.activity_item_filme,parent,false);
             viewHolder = new ViewHolder();
-            viewHolder.conditionImageView = principal.findViewById(R.id.conditionImageView);
-            viewHolder.txtTitulo = principal.findViewById(R.id.txtTitulo);
-            viewHolder.txtId = principal.findViewById(R.id.txtId);
-            viewHolder.txtDirecao = principal.findViewById(R.id.txtDirecao);
-            viewHolder.txtData = principal.findViewById(R.id.txtData);
-
-            //convertView = inflater.inflate();
-        } else {
-            principal = convertView;
-            viewHolder = (ViewHolder) principal.getTag();
+            raiz.setTag(viewHolder);
+            viewHolder.filmeImage = raiz.findViewById(R.id.conditionImageView);
+            viewHolder.titulo = raiz.findViewById(R.id.txtTitulo);
+            viewHolder.diretor = raiz.findViewById(R.id.txtDirecao);
+            viewHolder.dataLancamento = raiz.findViewById(R.id.txtData);
         }
-
-        viewHolder.txtTitulo.setText(desejado.getTitulo());
-        viewHolder.txtId.setText(String.valueOf(desejado.getId()));
-        viewHolder.txtDirecao.setText(desejado.getDirecao());
-        viewHolder.txtData.setText(desejado.getAnoLancamento());
-
-
-
-        return super.getView(position, convertView, parent);
-
-
+        else{
+            raiz = convertView;
+            viewHolder = (ViewHolder) raiz.getTag();
+        }
+        viewHolder.titulo.setText(filme.getTitulo());
+        viewHolder.diretor.setText(filme.getDirecao());
+        viewHolder.dataLancamento.setText(filme.getAnoLancamento().toString());
+        return  raiz;
     }
 
 

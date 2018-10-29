@@ -1,9 +1,27 @@
 package br.usjt.fabricio.deswebmob.pipocaandroid;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import com.google.gson.Gson;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+
 
 /**
  * Fabricio Caires
@@ -12,33 +30,37 @@ import android.widget.TextView;
 
 public class DetalheFilmeActivity extends AppCompatActivity {
 
-    TextView id, titulo, descricao, anoLancamento, popularidade, direcao, genero;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalhe_filme);
+        TextView id, titulo, descricao, anoLancamento, popularidade, direcao, genero;
 
-        id = findViewById(R.id.txtId);
-        titulo = findViewById(R.id.txtTitulo);
-        descricao = findViewById(R.id.txtDescricao);
-        anoLancamento = findViewById(R.id.txtAnoLancamento);
-        popularidade = findViewById(R.id.txtPopularidade);
-        direcao = findViewById(R.id.txtDirecao);
-        genero = findViewById(R.id.txtGenero);
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_detalhe_filme);
 
-        Intent intent = getIntent();
-        String nomeFilme = intent.getStringExtra(ListarFilmesActivity.FILME);
+            id = findViewById(R.id.txtId);
+            titulo = findViewById(R.id.txtTitulo);
+            descricao = findViewById(R.id.txtDescricao);
+            anoLancamento = findViewById(R.id.txtAnoLancamento);
+            popularidade = findViewById(R.id.txtPopularidade);
+            direcao = findViewById(R.id.txtDirecao);
+            genero = findViewById(R.id.txtGenero);
 
-        Filme filme = new Filme();
-        filme = filme.buscaFilme(nomeFilme);
+            Intent intent = getIntent();
+            String nomeFilme = intent.getStringExtra(ListarFilmesActivity.FILME);
 
-        id.setText(String.valueOf(filme.getId()));
-        titulo.setText(filme.getTitulo());
-        descricao.setText(filme.getDescricao());
-        anoLancamento.setText(filme.getAnoLancamento());
-        popularidade.setText(String.valueOf(filme.getPopularidade()));
-        direcao.setText(filme.getDirecao());
-        genero.setText(filme.getGenero().getNome());
-    }
-}
+            Filme filme = new Filme();
+            filme = filme.buscaFilme(nomeFilme);
+
+            id.setText(String.valueOf(filme.getId()));
+            titulo.setText(filme.getTitulo());
+            descricao.setText(filme.getDescricao());
+            anoLancamento.setText(filme.getAnoLancamento());
+            popularidade.setText(String.valueOf(filme.getPopularidade()));
+            direcao.setText(filme.getDirecao());
+            genero.setText(filme.getGenero().getNome());
+        }}
+
+
+
+

@@ -1,50 +1,68 @@
 package br.usjt.fabricio.deswebmob.pipocaandroid;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
 
 public class Genero {
 
-    private int id;
-    private String nome;
-    private ArrayList<Genero> generos;
 
-    public Genero(int id, String nome){
-        this.id = id;
-        this.nome = nome;
-    }
+        private int id;
+        private String nome;
+        private List<Genero> list;
 
-    public int getId() {
-        return id;
-    }
+        public Genero(int id, String nome) {
+            this.id = id;
+            this.nome = nome;
+        }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+        public Genero() {
+        }
 
-    public String getNome() {
-        return nome;
-    }
+        public int getId() {
+            return id;
+        }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+        public void setId(int id) {
+            this.id = id;
+        }
 
-    public ArrayList<Genero> getGeneros() {
-        return generos;
-    }
+        public String getNome() {
+            return nome;
+        }
 
-    public void setGeneros(ArrayList<Genero> generos) {
-        this.generos = generos;
-    }
+        public void setNome(String nome) {
+            this.nome = nome;
+        }
 
-    public ArrayList<Genero> geraGeneros(){
-        Genero genero1 = new Genero(1 , "Ação");
-        Genero genero2 = new Genero(2, "Aventura");
+        public List<Genero> getList() {
+            return list;
+        }
 
-        this.generos.add(genero1);
-        this.generos.add(genero2);
+        public void setList(ArrayList<Genero> list) {
+            this.list = list;
+        }
 
-        return generos;
-    }
+        public List<Genero> gerarLista() {
+            Genero g1 = new Genero(1, "Aventura");
+            Genero g2 = new Genero(2, "Ação");
+
+            this.list.add(g1);
+            this.list.add(g2);
+
+            return list;
+        }
+
+        public List<String> getGeneroNomeList() {
+            ArrayList<String> list = new ArrayList<>();
+
+            for (Genero g : this.getList()) {
+                list.add(g.getNome());
+            }
+
+            return list;
+        }
+
+
+
 }
